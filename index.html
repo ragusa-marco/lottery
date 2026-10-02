@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Seven Circle Lottery</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="game-shell">
+      <section class="stage" aria-labelledby="game-title">
+        <div class="control-bar" aria-label="Circle count">
+          <div>
+            <span class="bar-label">Circles</span>
+            <strong id="circle-count-label">7</strong>
+          </div>
+          <input id="circle-count" type="range" min="1" max="7" value="7" aria-label="Number of circles" />
+        </div>
+
+        <div class="lottery-machine" aria-hidden="true">
+          <div class="glass">
+            <span class="mini-ball b1">7</span>
+            <span class="mini-ball b2">3</span>
+            <span class="mini-ball b3">9</span>
+            <span class="mini-ball b4">1</span>
+            <span class="mini-ball b5">5</span>
+          </div>
+          <div class="base"></div>
+        </div>
+
+        <div class="copy">
+          <p class="eyebrow">seven circle lottery</p>
+          <h1 id="game-title">Pick your lucky sequence</h1>
+          <p class="status" id="status">Enter one digit from 0 to 9 in each active circle.</p>
+        </div>
+
+        <form class="ticket" id="ticket" autocomplete="off">
+          <fieldset class="number-grid" id="number-grid" aria-label="Your lottery digits">
+            <input class="digit-input" type="text" inputmode="numeric" maxlength="1" pattern="[0-9]" aria-label="Digit 1" />
+            <input class="digit-input" type="text" inputmode="numeric" maxlength="1" pattern="[0-9]" aria-label="Digit 2" />
+            <input class="digit-input" type="text" inputmode="numeric" maxlength="1" pattern="[0-9]" aria-label="Digit 3" />
+            <input class="digit-input" type="text" inputmode="numeric" maxlength="1" pattern="[0-9]" aria-label="Digit 4" />
+            <input class="digit-input" type="text" inputmode="numeric" maxlength="1" pattern="[0-9]" aria-label="Digit 5" />
+            <input class="digit-input" type="text" inputmode="numeric" maxlength="1" pattern="[0-9]" aria-label="Digit 6" />
+            <input class="digit-input" type="text" inputmode="numeric" maxlength="1" pattern="[0-9]" aria-label="Digit 7" />
+          </fieldset>
+
+          <div class="actions">
+            <button class="primary-button" type="submit" id="submit-button">Submit Pick</button>
+            <button class="icon-button" type="button" id="reset-button" aria-label="Play again" title="Play again">
+              <span aria-hidden="true">↻</span>
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <section class="result-panel" aria-label="Lottery result">
+        <div class="result-header">
+          <span>Hidden number</span>
+          <strong id="score-label">--%</strong>
+        </div>
+        <div class="reveal-row" id="reveal-row" aria-live="polite">
+          <span class="reveal-ball">?</span>
+          <span class="reveal-ball">?</span>
+          <span class="reveal-ball">?</span>
+          <span class="reveal-ball">?</span>
+          <span class="reveal-ball">?</span>
+          <span class="reveal-ball">?</span>
+          <span class="reveal-ball">?</span>
+        </div>
+        <div class="meter" aria-hidden="true">
+          <span id="meter-fill"></span>
+        </div>
+        <p class="detail" id="detail">The reveal starts after you submit a full ticket.</p>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
